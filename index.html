@@ -1,6 +1,26 @@
 <html>
 <head>
-  <title>A basic web page monitored by Datadog RUM</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Loading Different Resource Types</title>
+  <!-- External CSS Stylesheet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+      body {
+          font-family: 'Roboto', sans-serif;
+          text-align: center;
+          padding: 20px;
+      }
+      img {
+          width: 300px;
+          height: auto;
+          margin-bottom: 20px;
+      }
+  </style>
+
   <script
     src="https://www.datadoghq-browser-agent.com/us1/v5/datadog-rum.js"
     type="text/javascript">
@@ -25,14 +45,46 @@
     });
   </script>
 </head>
-<body>
-    <h1>Welcome to My Basic HTML Page</h1>
-    <p>This is a simple HTML page with the most basic elements.</p>
 
-    <!-- Basic JavaScript alert
+<body>
+    <h1>HTML Page Loading Different Resource Types</h1>
+
+    <!-- Image from the internet -->
+    <h2>Image Resource</h2>
+    <img src="https://via.placeholder.com/300" alt="Sample Image">
+
+    <!-- Video from the internet -->
+    <h2>Video Resource</h2>
+    <video width="400" controls>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- External Script -->
+    <h2>External JavaScript Resource</h2>
+    <p>Check the console for a message loaded from an external script.</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
     <script>
-        alert("Hello! This is a basic HTML page.");
+        console.log('Lodash library loaded:', _.VERSION);
     </script>
-    -->
+
+    <!-- Embedded Audio -->
+    <h2>Audio Resource</h2>
+    <audio controls>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Embedded Google Map -->
+    <h2>Google Maps Resource</h2>
+    <iframe
+        width="600"
+        height="450"
+        style="border:0"
+        loading="lazy"
+        allowfullscreen
+        src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Eiffel+Tower,Paris+France">
+    </iframe>
+    
 </body>
 </html>
