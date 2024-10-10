@@ -19,6 +19,12 @@
           height: auto;
           margin-bottom: 20px;
       }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin: 10px;
+        cursor: pointer;
+      }
   </style>
 
   <script
@@ -85,6 +91,35 @@
         allowfullscreen
         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBIUqWZPZfZKF6hQKRMAjRsFVdMZI_XlhI&q=Eiffel+Tower,Paris+France">
     </iframe>
+
+    <h2>Simple button with actions</h2>
+    <!-- Button 1: Displays an alert -->
+    <button onclick="showAlert()">Click Me for Alert</button>
+
+    <!-- Button 2: Changes background color -->
+    <button onclick="changeBackgroundColor()">Change Background Color</button>
+
+    <script>
+      // Function to show an alert
+      function showAlert() {
+        alert("Button was clicked!");
+      }
+
+      // Function to change background color
+      function changeBackgroundColor() {
+        document.body.style.backgroundColor = getRandomColor();
+      }
+
+      // Function to generate a random color
+      function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+    </script>  
     
 </body>
 </html>
